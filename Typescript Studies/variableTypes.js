@@ -1,20 +1,15 @@
 var x;
 x = "Hello";
-console.log(x);
 var y;
-console.log(y);
 var isCorrect;
 isCorrect = true;
-console.log(isCorrect);
 var countries = ['Russia', 'Germany', 'Portugal'];
 var numbers = [1, 2, 3];
 var t = [1, 'hi'];
-console.log(countries, numbers, t);
 var a;
 a = 5;
 a = 'hi';
 a = true;
-console.log(a);
 var colors;
 (function (colors) {
     colors[colors["red"] = 0] = "red";
@@ -27,4 +22,17 @@ var red = colors.red;
 var blue = colors.blue;
 var yellow = colors.yellow;
 var green = colors.green;
-console.log(colors);
+function greeter() {
+    console.log('hello');
+}
+var b;
+b = 5;
+var Product = /** @class */ (function () {
+    function Product() {
+    }
+    return Product;
+}());
+var greet;
+greet = ['Hello'];
+var count = greet.length;
+var count2 = greet.length;
