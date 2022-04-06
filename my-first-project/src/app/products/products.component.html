@@ -1,9 +1,14 @@
 <h1>Products</h1>
-<button class="btn btn-secondary " [disabled]="!addProduct">Add Product</button>
-<!-- <p>{{addProduct}}</p> -->
-<p [innerText]="addProduct"></p>
+<label>Product Name:</label> 
+<input type="text" class="form-control" (input)=(onUpdateProductName($event))>
+
+<p>{{enteredValue}}</p>
 
 <br><br>
+<button class="btn btn-secondary " [disabled]="!addProduct" (click)="onClick()">Add Product</button>
+<p>{{addProductStatus}}</p>
 
 <product></product>
 <product></product>
+
+
