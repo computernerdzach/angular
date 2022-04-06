@@ -26,7 +26,7 @@ export class Car {
         return this.brand;
     }
 
-}}
+}
 
 let car = new Car('mazda','rsx','yellow',2019);
 console.log(car.color + ' ' + car.getBrand);
