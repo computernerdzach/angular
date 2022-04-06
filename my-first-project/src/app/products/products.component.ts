@@ -8,5 +8,12 @@ import { Component } from "@angular/core";
 
 })
 export class ProductsComponent {
+    addProduct=true;
+
+    constructor(){
+        setTimeout(()=>{
+            this.addProduct=false
+        },4000)
+    }
 
 }

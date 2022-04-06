@@ -1,4 +1,9 @@
 <h1>Products</h1>
+<button class="btn btn-secondary " [disabled]="!addProduct">Add Product</button>
+<!-- <p>{{addProduct}}</p> -->
+<p [innerText]="!addProduct"></p>
+
+<br><br>
 
 <product></product>
 <product></product>
