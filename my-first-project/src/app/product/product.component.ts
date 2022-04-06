@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'product',
   template: '<p>Product </p>',
-  styleUrls: ['./product.component.css']
+  styles: ['p{color: blue}']
 })
 export class ProductComponent implements OnInit {
 
