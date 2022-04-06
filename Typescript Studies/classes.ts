@@ -20,11 +20,11 @@ class Car {
 
 }
 
-// let car = new Car('mazda','rsx','yellow',2019);
-// console.log(car.color + ' ' + car.brand);
+let car = new Car('mazda','rsx','yellow',2019);
+console.log(car.color + ' ' + car.brand);
 
-// let car2 = new Car('ford','f150','brown',1981);
-// console.log(car2.yearManu, car2.model);
+let car2 = new Car('ford','f150','brown',1981);
+console.log(car2.yearManu, car2.model);
 
 
 class Person {

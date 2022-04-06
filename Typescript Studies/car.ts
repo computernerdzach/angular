@@ -22,6 +22,10 @@ export class Car {
 
     }
 
+    get getBrand() {
+        return this.brand;
+    }
+
 }
 
 
