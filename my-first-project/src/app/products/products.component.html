@@ -1,8 +1,12 @@
 <h1>Products</h1>
-<label>Product Name:</label> 
-<input type="text" class="form-control" (input)=(onUpdateProductName($event))>
+<label>Product Name:</label>
+<!-- <input type="text" class="form-control" 
+(input)=(onUpdateProductName($event))> -->
 
-<p>{{enteredValue}}</p>
+<input type="text" class="form-control"
+[(ngModel)]="enteredValue">
+
+<!-- <p>{{enteredValue}}</p> -->
 
 <br><br>
 <button class="btn btn-secondary " [disabled]="!addProduct" (click)="onClick()">Add Product</button>
@@ -10,5 +14,3 @@
 
 <product></product>
 <product></product>
-
-
