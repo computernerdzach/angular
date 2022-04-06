@@ -33,7 +33,7 @@ class Person {
 
     private email: string;
 
-    get mail(): string {
+    get mail():string {
         return this.email;
     }
     set mail(email: string) {

@@ -1,6 +1,6 @@
-function greeter(greet) {
-    console.log(greet, 'world');
-}
+// function greeter(greet) {
+//     console.log(greet, 'world');
+// }
 
-let greet = 'hello';
-greeter(greet);
+// let greet = 'hello';
+// greeter(greet);
