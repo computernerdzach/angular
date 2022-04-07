@@ -15,5 +15,9 @@ export class BookRepository {
         return this.books;
     }
 
+    getBookId(id: number): Book {
+        return this.books.find(b => b.id == id)!;
+    }
+
 
 }

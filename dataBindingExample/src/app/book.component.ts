@@ -1,5 +1,6 @@
 import { Component } from "@angular/core";
 import { BookRepository } from "./repository.model";
+import { Book } from "./book.model";
 
 @Component({
 
@@ -11,4 +12,6 @@ import { BookRepository } from "./repository.model";
 
 export class BookComponent {
     model: BookRepository = new BookRepository();
+
+    book: Book = this.model.getBookId(1);
 }
