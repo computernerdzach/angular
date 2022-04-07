@@ -40,4 +40,14 @@ export class BookComponent {
         }
     }
 
+    onClick(event: any) {
+        event.stopPropagation();
+        console.log('Button was clicked');
+        console.log(event);
+    }
+
+    onClickDiv() {
+        console.log('div was clicked');
+    }
+
 }

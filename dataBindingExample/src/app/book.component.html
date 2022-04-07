@@ -5,7 +5,7 @@
 </div>
 <div>{{book.name}}</div>  -->
 
-<div [class]="getClassBinding(1)">
+<!-- <div [class]="getClassBinding(1)">
     <h2>First book is {{model.getBookId(1).name}}</h2>
 </div>
 
@@ -20,5 +20,11 @@
 </div>
 
 <div class="m-3" [ngClass]="getClassObject(2)">
-    <h2>Second book is {{model.getBookId(2).name}}</h2>
+    <h2><span [ngStyle]="getStyleBinding(2)">Second book is {{model.getBookId(2).name}}</span></h2>
+</div> -->
+
+
+<div (click)="onClickDiv()">
+    <button name="first button" class="btn btn-success" (click)="onClick($event)">Submit</button>
+    <button name="second button" class="btn btn-success" (click)="onClick($event)">Submit</button>
 </div>
