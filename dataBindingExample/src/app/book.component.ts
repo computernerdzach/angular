@@ -29,4 +29,15 @@ export class BookComponent {
             "text-white": book.name == "My Childhood"
         }
     }
+
+    color: string = this.model.getBookId(1).price! >= 20 ? "green" : "yellow";
+
+    getStyleBinding(id: number): Object {
+        let book = this.model.getBookId(id);
+        return {
+            fontSize: "40px",
+            color: "yellow"
+        }
+    }
+
 }

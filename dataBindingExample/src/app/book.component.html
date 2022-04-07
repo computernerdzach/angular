@@ -16,7 +16,7 @@
 <button class="btn btn-success" [class.disabled]="disabled">Submit</button>
 
 <div class="m-3" [ngClass]="getClassObject(1)">
-    <h2>First book is {{model.getBookId(1).name}}</h2>
+    <h2><span [style.color]="color">First book is {{model.getBookId(1).name}}</span></h2>
 </div>
 
 <div class="m-3" [ngClass]="getClassObject(2)">
