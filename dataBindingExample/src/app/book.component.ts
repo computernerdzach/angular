@@ -16,6 +16,8 @@ export class BookComponent {
     price:number=159.9555;
     today:number=Date.now();
 
+    description='Lorem ipsum lots of writing and stuff';
+
 
     model: BookRepository = new BookRepository();
     book: Book = this.model.getBookId(1);
