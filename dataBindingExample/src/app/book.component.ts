@@ -11,6 +11,12 @@ import { Book } from "./book.model";
 })
 
 export class BookComponent {
+
+    name1:string='Angular Pipes';
+    price:number=159.9555;
+    today:number=Date.now();
+
+
     model: BookRepository = new BookRepository();
     book: Book = this.model.getBookId(1);
 
@@ -51,9 +57,9 @@ export class BookComponent {
     }
 
 
-    name = "John"
+    theName = "John"
     onKeyUp() {
-        console.log(this.name);
+        console.log(this.theName);
     }
 
 }

@@ -29,6 +29,23 @@
     <button name="second button" class="btn btn-success" (click)="onClick($event)">Submit</button>
 </div> -->
 
-<input [value]="name" (keyup.enter)="name=$any($event.target).value; onKeyUp()">
+<!-- <input [value]="name" (keyup.enter)="name=$any($event.target).value; onKeyUp()"> -->
 
-<!-- <input (ngModule)]="name" (keyup.enter)="onKeyUp()"> -->
+
+<h3>Lower-Title CasePipe</h3>
+{{name1}} <br>
+{{name1 | lowercase}}<br>
+{{name1 | titlecase}}
+
+<h3>Number Case</h3>
+
+{{price }}<br>
+{{price | number }}<br>
+{{price | number:'1.3-3'}}
+
+<h3>Date Case</h3>
+{{today}}<br>
+{{today | date}}<br>
+{{today | date:'short'}}<br>
+{{today | date:'medium'}}<br>
+{{today | date:'MMM d, y, h:mm:ss a'}}<br>
