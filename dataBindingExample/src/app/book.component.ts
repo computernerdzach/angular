@@ -50,4 +50,10 @@ export class BookComponent {
         console.log('div was clicked');
     }
 
+    onKeyUp($event: any) {
+
+        console.log($event.target.value);
+
+    }
+
 }
