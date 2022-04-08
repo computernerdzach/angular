@@ -29,4 +29,6 @@
     <button name="second button" class="btn btn-success" (click)="onClick($event)">Submit</button>
 </div> -->
 
-<input (keyup.enter)="onKeyUp($event)">
+<input [value]="name" (keyup.enter)="name=$any($event.target).value; onKeyUp()">
+
+<!-- <input (ngModule)]="name" (keyup.enter)="onKeyUp()"> -->
