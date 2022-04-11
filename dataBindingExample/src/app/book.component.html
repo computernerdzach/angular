@@ -1,4 +1,4 @@
-<h1>Book List</h1>
+<!-- <h1>Book List</h1> -->
 
 <!-- <div>
     <h3 [textContent]="book.name"></h3> 
@@ -50,9 +50,21 @@
 {{today | date:'medium'}}<br>
 {{today | date:'MMM d, y, h:mm:ss a'}}<br> -->
 
-{{description | custompipe}}<br>
-{{description}}<br>
-{{description}}<br>
-{{description}}<br>
-{{description}}
+<div *ngIf="model.getBooks().length>0;then bookList else noBook "></div>
+    <!-- There are {{model.getBooks().length}} books on the list</div> -->
 
+<div *ngIf="model.getBooks().length==0"></div>
+    <!-- There is no book on the list</div> -->
+
+<!-- <div [hidden]="model.getBooks().length==0">
+    There are {{model.getBooks().length}} books on the list</div>
+
+<div [hidden]="model.getBooks().length!=0">
+    There is no book on the list</div> -->
+
+<ng-template #bookList>
+    There are {{model.getBooks().length}} books on the list
+</ng-template>
+<ng-template #noBook>
+    There is no book on the list
+</ng-template>
