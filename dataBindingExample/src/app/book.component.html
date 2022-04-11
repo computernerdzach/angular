@@ -69,7 +69,7 @@
     There is no book on the list
 </ng-template> -->
 
-<div [ngSwitch]="model.getBooks().length">
+<!-- <div [ngSwitch]="model.getBooks().length">
     <span *ngSwitchCase="0">There is no book</span>
     <span *ngSwitchCase="1">There is 1 book</span>
     <span *ngSwitchDefault>There are many books</span>
@@ -82,4 +82,12 @@
         Book name is My Childhood</span>
     <span *ngSwitchDefault>
         Book name is Sweaters</span>
-</div>
+</div> -->
+
+
+<ul>
+    <li *ngFor="let book of model.getBooks(); index as i; first as f">
+        {{i+1}} - {{book.name}} - {{book.price}}
+        <span *ngIf="f">is first item</span>
+    </li>
+</ul>
