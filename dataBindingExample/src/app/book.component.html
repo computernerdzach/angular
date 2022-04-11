@@ -84,7 +84,7 @@
         Book name is Sweaters</span>
 </div> -->
 
-<div>
+<!-- <div>
     <button (click)="addBook()" class="btn-success">Add Book </button>
     <ul>
 
@@ -107,4 +107,29 @@
         <span *ngIf="f">is first item</span>
     </li>
 
-</ul>
+</ul> -->
+<!-- <ng-template [ngTemplateOutlet]="bookList"
+    [ngTemplateOutlet]="{books:model.getBooks()}"></ng-template>
+<ng-template [ngTemplateOutlet]="bookList"
+    [ngTemplateOutlet]="{books:model.getBooks()}"></ng-template> -->
+
+<ng-template [ngTemplateOutlet]="bookList"
+[ngTemplateOutletContext]="{books:model.getBooks()}">
+</ng-template> 
+   
+<ng-template [ngTemplateOutlet]="bookList"
+[ngTemplateOutletContext]="{books:model.getBooks()}">
+</ng-template> 
+
+<ng-template #bookList let-books="books">
+    <div>
+        <ul>
+            <li *ngFor="let book of books">
+                {{book.name}}
+            </li>
+        </ul>
+    </div>
+</ng-template>
+
+
+
