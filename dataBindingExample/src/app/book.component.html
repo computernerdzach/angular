@@ -84,10 +84,27 @@
         Book name is Sweaters</span>
 </div> -->
 
+<div>
+    <button (click)="addBook()" class="btn-success">Add Book </button>
+    <ul>
+
+        <li *ngFor="let book of model.getBooks()">
+            {{book.name}}
+            <button class="btn btn-danger" (click)="deleteBook(book)">
+                Delete</button>
+            <button class="btn btn-primary" (click)="updateBook(book)">
+                Update</button>
+
+        </li>
+
+    </ul>
+</div>
 
 <ul>
+
     <li *ngFor="let book of model.getBooks(); index as i; first as f">
         {{i+1}} - {{book.name}} - {{book.price}}
         <span *ngIf="f">is first item</span>
     </li>
+
 </ul>

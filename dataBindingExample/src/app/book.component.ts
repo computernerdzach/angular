@@ -14,6 +14,18 @@ export class BookComponent {
 
     model: BookRepository = new BookRepository();
     bookName = this.model.getBookId(1).name;
+    
+    addBook(){
+        this.model.addBook(new Book(4, 'Anna Karanina', 'Tolstoy', 20))
+    }
+
+    deleteBook(book:Book) {
+        this.model.deleteBook(book)
+    }
+
+    updateBook(book:Book){
+        book.name="updated"    
+    }
 
 }
 
