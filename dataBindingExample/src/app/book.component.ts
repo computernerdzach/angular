@@ -13,7 +13,8 @@ import { Book } from "./book.model";
 export class BookComponent {
 
     model: BookRepository = new BookRepository();
-    
+    bookName = this.model.getBookId(1).name;
+
 }
 
 // export class BookComponent {

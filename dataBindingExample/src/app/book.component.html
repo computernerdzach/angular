@@ -50,11 +50,11 @@
 {{today | date:'medium'}}<br>
 {{today | date:'MMM d, y, h:mm:ss a'}}<br> -->
 
-<div *ngIf="model.getBooks().length>0;then bookList else noBook "></div>
-    <!-- There are {{model.getBooks().length}} books on the list</div> -->
+<!-- <div *ngIf="model.getBooks().length>0;then bookList else noBook "></div> -->
+<!-- There are {{model.getBooks().length}} books on the list</div> -->
 
-<div *ngIf="model.getBooks().length==0"></div>
-    <!-- There is no book on the list</div> -->
+<!-- <div *ngIf="model.getBooks().length==0"></div> -->
+<!-- There is no book on the list</div> -->
 
 <!-- <div [hidden]="model.getBooks().length==0">
     There are {{model.getBooks().length}} books on the list</div>
@@ -62,9 +62,24 @@
 <div [hidden]="model.getBooks().length!=0">
     There is no book on the list</div> -->
 
-<ng-template #bookList>
+<!-- <ng-template #bookList>
     There are {{model.getBooks().length}} books on the list
 </ng-template>
 <ng-template #noBook>
     There is no book on the list
-</ng-template>
+</ng-template> -->
+
+<div [ngSwitch]="model.getBooks().length">
+    <span *ngSwitchCase="0">There is no book</span>
+    <span *ngSwitchCase="1">There is 1 book</span>
+    <span *ngSwitchDefault>There are many books</span>
+</div>
+
+<div [ngSwitch]="model.getBookId(2).name">
+    <span *ngSwitchCase="bookName">
+        Book name is War and Peace</span>
+    <span *ngSwitchCase="'My Childhood'">
+        Book name is My Childhood</span>
+    <span *ngSwitchDefault>
+        Book name is Sweaters</span>
+</div>
