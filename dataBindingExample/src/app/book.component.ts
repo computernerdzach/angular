@@ -23,9 +23,9 @@ export class BookComponent {
         console.log('New Book is ' + this.jsonBook);
     }
 
-    log(model: any) {
-        console.log(model);
-    }
+    // log(model: any) {
+    //     console.log(model);
+    // }
 
 
 
