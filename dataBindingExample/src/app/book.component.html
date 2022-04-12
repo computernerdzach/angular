@@ -154,7 +154,7 @@
 
                     <div class="form-group">
                         <label>Name </label>
-                        <input required minlength="3" [(ngModel)]="newBook.name" name="bName" #name="ngModel"
+                        <input required minlength="3" [(ngModel)]="newBook.name" name="name" #name="ngModel"
                             type="text" class="form-control">
                         <!-- <div class="alert alert-danger" *ngIf="!name.valid && name.touched"> -->
                         <div class="alert alert-danger" *ngIf="(formSubmit || name.dirty)&&!name.valid">
@@ -169,7 +169,7 @@
 
                     <div class="form-group">
                         <label>Writer </label>
-                        <input required maxlength="10" [(ngModel)]="newBook.writer" name="bWriter" #writer="ngModel"
+                        <input required maxlength="10" [(ngModel)]="newBook.writer" name="writer" #writer="ngModel"
                             type="text" class="form-control">
                         <div class="alert alert-danger" *ngIf="!writer.valid &&writer.touched">
                             <p *ngIf="writer.errors?.['required']">Writer is required. Please fill in.</p>
@@ -179,16 +179,21 @@
 
                     <div class="form-group">
                         <label>Price </label>
-                        <input required pattern="[0-9]" [(ngModel)]="newBook.price" name="bPrice" #price="ngModel"
+                        <input required pattern="[0-9]" [(ngModel)]="newBook.price" name="price" #price="ngModel"
                             type="text" class="form-control">
                         <div class="alert alert-danger" *ngIf="!price.valid &&price.touched">
                             <p *ngIf="price.errors?.['required']">Price is required. Please fill in.</p>
                             <p *ngIf="price.errors?.['pattern']">Price can only be a number.</p>
                         </div>
 
-                        <button (click)="addBook(newBook)" class="btn btn-primary">Submit </button>
-
                     </div>
+
+                    <button (click)="addBook(newBook)" class="btn btn-primary"
+                    [disabled]="formSubmit && form.invalid"
+                    [class.btn-secondary]="formSubmit && form.invalid">
+                        Submit
+                    </button>
+
 
                 </form>
 
