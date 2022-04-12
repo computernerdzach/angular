@@ -15,12 +15,16 @@ export class BookComponent {
     model: BookRepository = new BookRepository();
 
     newBook: Book = new Book();
-    get jsonBook(){
+    get jsonBook() {
         return JSON.stringify(this.newBook)
     }
 
-    addBook(b:Book){
+    addBook(b: Book) {
         console.log('New Book is ' + this.jsonBook);
+    }
+
+    log(model: any) {
+        console.log(model);
     }
 
 
