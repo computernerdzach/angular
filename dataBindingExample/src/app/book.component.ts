@@ -24,15 +24,28 @@ export class BookComponent {
         console.log('New Book is ' + this.jsonBook);
     }
 
-    getValidationErrors(model: any) {
-        let ctrlName: string = model.name;
+    getFormValidationErrors(form: NgForm): string[] {
+        let messages: string[] = [];
+        Object.keys(form.controls).forEach(x=>{
+            console.log(x);
+            console.log(form.controls[x]);
+
+        this.getValidationErrors(form.controls[x],x)
+        .forEach(message=> messages.push(message));
+        })
+
+        return messages;
+    }
+
+    getValidationErrors(model: any, key: string) {
+        let ctrlName: string = model.name || key;;
         let messages: string[] = [];
 
         if (model.errors) {
             for (let errorName in model.errors) {
                 switch (errorName) {
                     case "required":
-                        messages.push('You must enter a name');
+                        messages.push(`You must enter a ${ctrlName}`);
                         break;
                     case "minlength":
                         messages.push('You must enter min. 3 characters');
@@ -50,7 +63,7 @@ export class BookComponent {
     formSubmit: boolean = false;
 
     submitForm(form: NgForm) {
-        // console.log(form);
+        console.log(form);
         this.formSubmit = true;
         if (form.valid) {
             this.addBook(this.newBook);
