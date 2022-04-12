@@ -145,22 +145,31 @@
 
                 <div class="form-group">
                     <label>Name </label>
-                    <input required [(ngModel)]="newBook.name" name="bName" #name="ngModel" type="text" class="form-control">
+                    <input required [(ngModel)]="newBook.name" name="bName" #name="ngModel" type="text"
+                        class="form-control">
+                    <div class="alert alert-danger" *ngIf="!name.valid &&name.touched">Name is required. Please fill in.
+                    </div>
                 </div>
 
                 <div class="form-group">
                     <label>Writer </label>
-                    <input [(ngModel)]="newBook.writer" type="text" class="form-control">
+                    <input required [(ngModel)]="newBook.writer" name="bWriter" #writer="ngModel" type="text"
+                        class="form-control">
+                    <div class="alert alert-danger" *ngIf="!writer.valid &&writer.touched">Writer is required. Please fill in.
+                    </div>
                 </div>
 
                 <div class="form-group">
                     <label>Price </label>
-                    <input [(ngModel)]="newBook.price" type="text" class="form-control">
+                    <input required [(ngModel)]="newBook.price" name="bPrice" #price="ngModel" type="text"
+                        class="form-control">
+                    <div class="alert alert-danger" *ngIf="!price.valid &&price.touched">Price is required. Please
+                        fill in.
+                    </div>
+
+                    <button (click)="addBook(newBook)" class="btn btn-primary">Submit </button>
+
                 </div>
-
-                <button (click)="addBook(newBook)" class="btn btn-primary">Submit </button>
-
             </div>
         </div>
     </div>
-</div>
