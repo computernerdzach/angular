@@ -42,9 +42,13 @@ export class BookComponent {
         return messages;
     }
 
-    // log(model: any) {
-    //     console.log(model);
-    // }
+    log(model: any) {
+        console.log(model);
+    }
+
+    submitForm(form:any){
+        console.log(form);
+    }
 
 
 
