@@ -1,6 +1,7 @@
 import { Component } from "@angular/core";
 import { BookRepository } from "./repository.model";
 import { Book } from "./book.model";
+import { NgForm } from "@angular/forms";
 
 @Component({
 
@@ -25,11 +26,11 @@ export class BookComponent {
 
     getValidationErrors(model: any) {
         let ctrlName: string = model.name;
-        let messages:string[]=[];
+        let messages: string[] = [];
 
-        if(model.errors){
-            for(let errorName in model.errors){
-                switch(errorName){
+        if (model.errors) {
+            for (let errorName in model.errors) {
+                switch (errorName) {
                     case "required":
                         messages.push('You must enter a name');
                         break;
@@ -46,8 +47,17 @@ export class BookComponent {
         console.log(model);
     }
 
-    submitForm(form:any){
-        console.log(form);
+    formSubmit: boolean = false;
+
+    submitForm(form: NgForm) {
+        // console.log(form);
+        this.formSubmit = true;
+        if (form.valid) {
+            this.addBook(this.newBook);
+            this.newBook = new Book();
+            form.reset();
+            this.formSubmit = false;
+        }
     }
 
 

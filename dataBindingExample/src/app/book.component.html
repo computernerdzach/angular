@@ -139,6 +139,9 @@
         <div class="col-10">
             <div class="m-2">
                 <form #form="ngForm" (ngSubmit)="submitForm(form)">
+                    <div class="bg-danger text-white" *ngIf="formSubmit && form.invalid">
+                        There is a problem. Please check your information.
+                    </div>
 
                     <div class="bg-primary text-white m-2 p-2">
                         {{jsonBook}}
@@ -148,7 +151,8 @@
                         <label>Name </label>
                         <input required minlength="3" [(ngModel)]="newBook.name" name="bName" #name="ngModel"
                             type="text" class="form-control">
-                        <div class="alert alert-danger" *ngIf="!name.valid && name.touched">
+                        <!-- <div class="alert alert-danger" *ngIf="!name.valid && name.touched"> -->
+                        <div class="alert alert-danger" *ngIf="(formSubmit || name.dirty)&&!name.valid">
                             <!-- <p *ngIf="name.errors?.['required']">Name is required. Please fill in.</p>
                             <p *ngIf="name.errors?.['minlength']">You must enter min. 3 characters.</p> -->
 
