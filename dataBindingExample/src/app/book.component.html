@@ -148,8 +148,12 @@
                     <input required minlength="3" [(ngModel)]="newBook.name" name="bName" #name="ngModel" type="text"
                         class="form-control">
                     <div class="alert alert-danger" *ngIf="!name.valid &&name.touched">
-                        <p *ngIf="name.errors?.['required']">Name is required. Please fill in.</p>
-                        <p *ngIf="name.errors?.['minlength']">You must enter min. 3 characters.</p>
+                        <!-- <p *ngIf="name.errors?.['required']">Name is required. Please fill in.</p>
+                        <p *ngIf="name.errors?.['minlength']">You must enter min. 3 characters.</p> -->
+                            
+                        <p *ngFor="let error of getValidationErrors(name)">
+                            {{error}}
+                        </p>
                     </div>
                 </div>
 

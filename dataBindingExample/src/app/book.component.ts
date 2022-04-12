@@ -23,6 +23,25 @@ export class BookComponent {
         console.log('New Book is ' + this.jsonBook);
     }
 
+    getValidationErrors(model: any) {
+        let ctrlName: string = model.name;
+        let messages:string[]=[];
+
+        if(model.errors){
+            for(let errorName in model.errors){
+                switch(errorName){
+                    case "required":
+                        messages.push('You must enter a $(ctrlName)');
+                        break;
+                    case "minlength":
+                        messages.push('You must enter min. 3 characters');
+                        break;
+                }
+            }
+        }
+        return messages;
+    }
+
     // log(model: any) {
     //     console.log(model);
     // }
