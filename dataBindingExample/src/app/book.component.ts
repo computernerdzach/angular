@@ -31,7 +31,7 @@ export class BookComponent {
             for(let errorName in model.errors){
                 switch(errorName){
                     case "required":
-                        messages.push('You must enter a $(ctrlName)');
+                        messages.push('You must enter a name');
                         break;
                     case "minlength":
                         messages.push('You must enter min. 3 characters');
