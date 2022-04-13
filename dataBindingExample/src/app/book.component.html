@@ -134,7 +134,7 @@
 
 <!-- <input type="text" appForEmail> -->
 
-<div class="container">
+<!-- <div class="container">
     <div class="row">
         <div class="col-10">
             <div class="m-2">
@@ -151,15 +151,11 @@
                     <div class="bg-primary text-white m-2 p-2">
                         {{jsonBook}}
                     </div>
-
                     <div class="form-group">
                         <label>Name </label>
                         <input required minlength="3" [(ngModel)]="newBook.name" name="name" #name="ngModel"
                             type="text" class="form-control">
-                        <!-- <div class="alert alert-danger" *ngIf="!name.valid && name.touched"> -->
                         <div class="alert alert-danger" *ngIf="(formSubmit || name.dirty)&&!name.valid">
-                            <!-- <p *ngIf="name.errors?.['required']">Name is required. Please fill in.</p>
-                            <p *ngIf="name.errors?.['minlength']">You must enter min. 3 characters.</p> -->
 
                             <p *ngFor="let error of getValidationErrors(name,'')">
                                 {{error}}
@@ -199,4 +195,27 @@
 
             </div>
         </div>
-    </div>
+    </div> -->
+
+
+    <!-- Reactive Form -->
+    <form>
+
+         <div>
+             <label>Name</label>
+             <input class="form-control">
+         </div>
+
+         <div>
+            <label>Writer</label>
+            <input class="form-control">
+        </div>
+
+        <div>
+            <label>Price</label>
+            <input class="form-control">
+        </div>
+
+        <button type="submit">Submit</button>
+
+    </form>
