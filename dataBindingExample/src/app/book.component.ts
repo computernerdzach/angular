@@ -19,6 +19,10 @@ export class BookComponent {
         price: new FormControl('', Validators.required)
     })
 
+    get name() {
+        return this.bookForm.get('name');
+    }
+
     onSubmit() {
         console.log(this.bookForm.value);
     }
