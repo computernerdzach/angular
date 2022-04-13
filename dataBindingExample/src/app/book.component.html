@@ -198,24 +198,24 @@
     </div> -->
 
 
-    <!-- Reactive Form -->
-    <form>
+<!-- Reactive Form -->
+<form>
 
-         <div>
-             <label>Name</label>
-             <input class="form-control">
-         </div>
+    <div>
+        <label>Name</label>
+        <input class="form-control" [formControl]="name">
+    </div>
 
-         <div>
-            <label>Writer</label>
-            <input class="form-control">
-        </div>
+    <div>
+        <label>Writer</label>
+        <input class="form-control" [formControl]="writer">
+    </div>
 
-        <div>
-            <label>Price</label>
-            <input class="form-control">
-        </div>
+    <div>
+        <label>Price</label>
+        <input class="form-control" [formControl]="price">
+    </div>
 
-        <button type="submit">Submit</button>
+    <button type="submit" (click)="updateName()">Submit</button>
 
-    </form>
+</form>

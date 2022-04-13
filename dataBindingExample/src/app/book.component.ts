@@ -1,7 +1,7 @@
 import { Component } from "@angular/core";
 import { BookRepository } from "./repository.model";
 import { Book } from "./book.model";
-import { NgForm } from "@angular/forms";
+import { FormControl, NgForm } from "@angular/forms";
 
 @Component({
 
@@ -11,86 +11,102 @@ import { NgForm } from "@angular/forms";
 
 })
 
+// Reactive Form
 export class BookComponent {
+    name = new FormControl('Title');
+    writer = new FormControl('Author');
+    price = new FormControl('42');
 
-    model: BookRepository = new BookRepository();
-
-    newBook: Book = new Book();
-    get jsonBook() {
-        return JSON.stringify(this.newBook)
+    updateName() {
+        this.name.setValue('My Childhood');
     }
-
-    addBook(b: Book) {
-        console.log('New Book is ' + this.jsonBook);
-    }
-
-    getFormValidationErrors(form: NgForm): string[] {
-        let messages: string[] = [];
-        Object.keys(form.controls).forEach(x=>{
-            console.log(x);
-            console.log(form.controls[x]);
-
-        this.getValidationErrors(form.controls[x],x)
-        .forEach(message=> messages.push(message));
-        })
-
-        return messages;
-    }
-
-    getValidationErrors(model: any, key: string) {
-        let ctrlName: string = model.name || key;;
-        let messages: string[] = [];
-
-        if (model.errors) {
-            for (let errorName in model.errors) {
-                switch (errorName) {
-                    case "required":
-                        messages.push(`You must enter a ${ctrlName}`);
-                        break;
-                    case "minlength":
-                        messages.push('You must enter min. 3 characters');
-                        break;
-                }
-            }
-        }
-        return messages;
-    }
-
-    log(model: any) {
-        console.log(model);
-    }
-
-    formSubmit: boolean = false;
-
-    submitForm(form: NgForm) {
-        console.log(form);
-        this.formSubmit = true;
-        if (form.valid) {
-            this.addBook(this.newBook);
-            this.newBook = new Book();
-            form.reset();
-            this.formSubmit = false;
-        }
-    }
-
-
-
-
-    // bookName = this.model.getBookId(1).name;
-
-    // addBook(){
-    //     this.model.addBook(new Book(4, 'Anna Karanina', 'Tolstoy', 20))
-    // }
-
-    // deleteBook(book:Book) {
-    //     this.model.deleteBook(book)
-    // }
-
-    // updateBook(book:Book){
-    //     book.name="updated"    
-    // }
-
 }
+
+
+
+
+
+
+// export class BookComponent {
+
+//     model: BookRepository = new BookRepository();
+
+//     newBook: Book = new Book();
+//     get jsonBook() {
+//         return JSON.stringify(this.newBook)
+//     }
+
+//     addBook(b: Book) {
+//         console.log('New Book is ' + this.jsonBook);
+//     }
+
+//     getFormValidationErrors(form: NgForm): string[] {
+//         let messages: string[] = [];
+//         Object.keys(form.controls).forEach(x=>{
+//             console.log(x);
+//             console.log(form.controls[x]);
+
+//         this.getValidationErrors(form.controls[x],x)
+//         .forEach(message=> messages.push(message));
+//         })
+
+//         return messages;
+//     }
+
+//     getValidationErrors(model: any, key: string) {
+//         let ctrlName: string = model.name || key;;
+//         let messages: string[] = [];
+
+//         if (model.errors) {
+//             for (let errorName in model.errors) {
+//                 switch (errorName) {
+//                     case "required":
+//                         messages.push(`You must enter a ${ctrlName}`);
+//                         break;
+//                     case "minlength":
+//                         messages.push('You must enter min. 3 characters');
+//                         break;
+//                 }
+//             }
+//         }
+//         return messages;
+//     }
+
+//     log(model: any) {
+//         console.log(model);
+//     }
+
+//     formSubmit: boolean = false;
+
+//     submitForm(form: NgForm) {
+//         console.log(form);
+//         this.formSubmit = true;
+//         if (form.valid) {
+//             this.addBook(this.newBook);
+//             this.newBook = new Book();
+//             form.reset();
+//             this.formSubmit = false;
+//         }
+//     }
+
+
+
+
+//     // bookName = this.model.getBookId(1).name;
+
+//     // addBook(){
+//     //     this.model.addBook(new Book(4, 'Anna Karanina', 'Tolstoy', 20))
+//     // }
+
+//     // deleteBook(book:Book) {
+//     //     this.model.deleteBook(book)
+//     // }
+
+//     // updateBook(book:Book){
+//     //     book.name="updated"    
+//     // }
+
+// }
 
 // export class BookComponent {
 
