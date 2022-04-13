@@ -2,6 +2,9 @@ import { Component } from "@angular/core";
 import { BookRepository } from "./repository.model";
 import { Book } from "./book.model";
 import { FormControl, FormGroup, NgForm, Validators } from "@angular/forms";
+import { ImageValidator } from "./image.validator";
+import { map } from "rxjs/operators";
+
 
 @Component({
 
@@ -16,11 +19,16 @@ export class BookComponent {
     bookForm = new FormGroup({
         name: new FormControl('', [Validators.required, Validators.minLength(3)]),
         writer: new FormControl('', Validators.required),
-        price: new FormControl('', Validators.required)
+        price: new FormControl('', Validators.required),
+        image: new FormControl('', [Validators.required, ImageValidator.isValidExtension])
     })
 
     get name() {
         return this.bookForm.get('name');
+    }
+
+    get image() {
+        return this.bookForm.get('image');
     }
 
     onSubmit() {
