@@ -199,23 +199,29 @@
 
 
 <!-- Reactive Form -->
-<form>
+<div>
+    <form [formGroup]="bookForm" (ngSubmit)="onSubmit()">
 
-    <div>
-        <label>Name</label>
-        <input class="form-control" [formControl]="name">
-    </div>
+        <div class="form-group">
+            <label>Name</label>
+            <input class="form-control" formControlName="name">
+            <!-- <input class="form-control" [formControl]="name"> -->
+        </div>
 
-    <div>
-        <label>Writer</label>
-        <input class="form-control" [formControl]="writer">
-    </div>
+        <div>
+            <label>Writer</label>
+            <input class="form-control" formControlName="writer">
+            <!-- <input class="form-control" [formControl]="writer"> -->
+        </div>
 
-    <div>
-        <label>Price</label>
-        <input class="form-control" [formControl]="price">
-    </div>
+        <div>
+            <label>Price</label>
+            <input class="form-control" formControlName="price">
+            <!-- <input class="form-control" [formControl]="price"> -->
+        </div>
 
-    <button type="submit" (click)="updateName()">Submit</button>
+        <!-- <button type="submit" (click)="updateName()">Submit</button> -->
+        <button type="submit" (click)="updateBook()">Submit</button>
 
-</form>
+    </form>
+</div>
