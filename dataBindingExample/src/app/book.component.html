@@ -206,6 +206,8 @@
             <label>Name</label>
             <input class="form-control" formControlName="name">
             <!-- <input class="form-control" [formControl]="name"> -->
+            <div class="alert alert-danger" *ngIf="bookForm.get('name')?.touched&&
+            bookForm.get('name')?.invalid">Name is required</div>
         </div>
 
         <div>
@@ -220,7 +222,7 @@
             <!-- <input class="form-control" [formControl]="price"> -->
         </div>
 
-        <button type="submit">Submit</button><br>
+        <!-- <button type="submit">Submit</button><br> -->
         <button type="submit" (click)="updateBook()">Submit</button>
 
     </form>

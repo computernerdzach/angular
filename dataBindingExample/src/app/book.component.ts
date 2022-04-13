@@ -1,7 +1,7 @@
 import { Component } from "@angular/core";
 import { BookRepository } from "./repository.model";
 import { Book } from "./book.model";
-import { FormControl, FormGroup, NgForm } from "@angular/forms";
+import { FormControl, FormGroup, NgForm, Validators } from "@angular/forms";
 
 @Component({
 
@@ -14,16 +14,16 @@ import { FormControl, FormGroup, NgForm } from "@angular/forms";
 // Reactive Form
 export class BookComponent {
     bookForm = new FormGroup({
-        name: new FormControl('Title'),
-        writer: new FormControl('Author'),
-        price: new FormControl('42')
+        name: new FormControl('', [Validators.required, Validators.minLength(3)]),
+        writer: new FormControl('', Validators.required),
+        price: new FormControl('', Validators.required)
     })
 
-    onSubmit(){
+    onSubmit() {
         console.log(this.bookForm.value);
     }
 
-    updateBook(){
+    updateBook() {
         this.bookForm.patchValue({
             name: 'Childhood',
             writer: 'yo momma',
